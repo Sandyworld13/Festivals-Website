@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>भारत के प्रमुख त्यौहार</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>भारत के प्रमुख त्यौहार</header>
+
+<section id="festivals"></section>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0; padding: 0;
+  background-color: #fff7e6;
+  color: #222;
+}
+
+header {
+  background-color: #ff6600;
+  color: white;
+  padding: 20px;
+  font-size: 2em;
+  text-align: center;
+}
+
+section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.festival {
+  background: white;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.festival img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.festival h2 {
+  color: #ff6600;
+}
+
+
+
+const festivals = [
+  {
+    name: "होली",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Holi_festival.jpg",
+    desc: "होली रंगों का त्यौहार है जो हर साल मार्च महीने में मनाया जाता है। यह प्रेम, भाईचारा और खुशी का प्रतीक है।"
+  },
+  {
+    name: "दिवाली",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Diwali_lights.jpg",
+    desc: "दिवाली रोशनी का त्यौहार है जो अंधकार पर प्रकाश की जीत का प्रतीक है। यह दीप जलाकर, मिठाई बांटकर और पटाखे फोड़कर मनाया जाता है।"
+  },
+  {
+    name: "रक्षाबंधन",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Rakhi.jpg",
+    desc: "रक्षाबंधन भाई-बहन के प्रेम और सुरक्षा के वचन का त्यौहार है। बहन भाई की कलाई पर राखी बांधती है और भाई उसकी रक्षा का वचन देता है।"
+  }
+];
+
+function showFestivals() {
+  const container = document.getElementById("festivals");
+  festivals.forEach(fest => {
+    const div = document.createElement("div");
+    div.className = "festival";
+    div.innerHTML = `
+      <h2>${fest.name}</h2>
+      <img src="${fest.image}" alt="${fest.name}" />
+      <p>${fest.desc}</p>
+    `;
+    container.appendChild(div);
+  });
+}
+
+window.onload = showFestivals;
